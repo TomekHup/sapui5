@@ -1,0 +1,91 @@
+{
+  "sap.app": {
+    "id": "toya",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.60.0",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "sap.ui5": {
+      "models": {
+        "": {
+          "dataSource": "mainService",
+          "settings": {
+            "useBatch": false
+          }
+        }
+      },
+      "dataSources": {
+        "mainService": {
+          "uri": "http://localhost:8080/https://services.odata.org/V2/Northwind/Northwind.svc/",
+          "type": "OData",
+          "settings": {
+            "odataVersion": "2.0"
+          }
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "toya.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "toya.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "Main",
+          "target": "Main"
+        },
+        {
+          "pattern": "customers",
+          "name": "Customers",
+          "target": "Customers"
+        }
+      ],
+      "targets": {
+        "Main": {
+          "viewName": "Main",
+          "viewLevel": 0
+        },
+        "Customers": {
+          "viewName": "Customers",
+          "viewLevel": 1
+        }
+      }
+    }
+  }
+}

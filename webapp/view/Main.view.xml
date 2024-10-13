@@ -1,0 +1,7 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="toya.controller.Main">
+    <Page title="Zadanie rekrutacyjne TOYA S.A.">
+        <content>
+            <Button text="Przejdź do klientów" press="onNavigate"/>
+        </content>
+    </Page>
+</mvc:View>

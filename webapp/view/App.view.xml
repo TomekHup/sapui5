@@ -1,0 +1,8 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="toya.controller.App">
+    <App id="app">
+        <pages>
+            <mvc:XMLView viewName="toya.view.Main"/>
+            <mvc:XMLView viewName="toya.view.Customers"/>
+        </pages>
+    </App>
+</mvc:View>

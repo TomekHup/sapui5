@@ -1,0 +1,61 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="toya.controller.Customers">
+    <Page title="Lista Klientów">
+        <content>
+            <VBox>
+                <Toolbar class="sapUiSmallMargin">
+                    <ToolbarSpacer/>
+                    <SearchField
+                            id="filterCity"
+                            placeholder="Filtruj po mieście"
+                            liveChange="onFilterCity"
+                    />
+                </Toolbar>
+                <Table id="customerTable" items="{/Customers}" mode="SingleSelectMaster" includeItemInSelection="true"
+                       updateFinished="onUpdateFinished">
+                    <columns>
+                        <Column demandPopin="true" minScreenWidth="Tablet" sortProperty="CompanyName" width="200px">
+                            <header>
+                                <Link text="Nazwa firmy" wrapping="true" press="onSortCompanyName" tooltip="Sortuj"/>
+                            </header>
+                        </Column>
+                        <Column demandPopin="true" minScreenWidth="Tablet">
+                            <header>
+                                <Label text="Adres"/>
+                            </header>
+                        </Column>
+                        <Column demandPopin="true" minScreenWidth="Tablet">
+                            <header>
+                                <Label text="Miasto"/>
+                            </header>
+                        </Column>
+                        <Column demandPopin="true" minScreenWidth="Tablet">
+                            <header>
+                                <Label text="Kod pocztowy"/>
+                            </header>
+                        </Column>
+                        <Column demandPopin="true" minScreenWidth="Tablet">
+                            <header>
+                                <Label text="Numer telefonu"/>
+                            </header>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{CompanyName}"/>
+                                <Text text="{Address}"/>
+                                <Text text="{City}"/>
+                                <Text text="{PostalCode}"/>
+                                <Text text="{Phone}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <Toolbar>
+                    <ToolbarSpacer/>
+                    <Label text="{= 'Liczba rekordów: ' + ${view>/recordCount}}"/>
+                </Toolbar>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
